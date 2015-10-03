@@ -10,15 +10,6 @@
 Share text, images etc to your phonegap app.
   </description>
 
-  <author>Amit Gupta</author>
-
-  <keywords>Custom Phonegap plugin, Share with My App, Share App</keywords>
-
-  <repo>https://github.com/globaltalentgrid/share2phonegap.git</repo>
-
-  <issue>https://github.com/globaltalentgrid/share2phonegap/issues</issue>
-
-
   <license>MIT</license>
 
   <engines>
@@ -57,6 +48,5 @@ Share text, images etc to your phonegap app.
         </intent-filter>
     </config-file>
   </platform>
-
 
 </plugin>
