@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="gtg.withme.share2phonegap"
-        version="0.0.1">
+        version="0.0.2">
 
   <name>Share 2 Phonegap</name>
 
@@ -12,8 +12,6 @@ Share text, images etc to your phonegap app.
 
   <author>Amit Gupta</author>
 
-  <license>MIT</license>
-
   <keywords>Custom Phonegap plugin, Share with My App, Share App</keywords>
 
   <repo>https://github.com/globaltalentgrid/share2phonegap.git</repo>
@@ -21,10 +19,11 @@ Share text, images etc to your phonegap app.
   <issue>https://github.com/globaltalentgrid/share2phonegap/issues</issue>
 
 
-  <engines>
-    <engine name="cordova" version=">=3.0.0"/>
-  </engines>
+  <license>MIT</license>
 
+  <engines>
+    <engine name="cordova" version=">=3.3.0"/>
+  </engines>
 
   <!-- android -->
   <platform name="android">
