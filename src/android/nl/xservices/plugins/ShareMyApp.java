@@ -41,21 +41,7 @@ public class ShareMyApp extends CordovaPlugin {
 
   @Override
   public void onNewIntent(Intent intent) {
-    final String intentString = intent.getDataString();
-    if (intentString != null && intent.getScheme() != null) {
-      intent.setData(null);
-      try {
-        StringWriter writer = new StringWriter(intentString.length() * 2);
-        escapeJavaStyleString(writer, intentString, true, false);
-        //webView.loadUrl("javascript:handleOpenURL('" + writer.toString() + "');");
-      } catch (IOException ignore) {
-      }
-    }
-  }
-
-  @Override
-  public void onCreate (Bundle savedInstanceState) {
-    // Get intent, action and MIME type
+      // Get intent, action and MIME type
     Intent intent = getIntent();
     String action = intent.getAction();
     String type = intent.getType();
@@ -77,10 +63,9 @@ public class ShareMyApp extends CordovaPlugin {
     } else {
         // Handle other intents, such as being started from the home screen
     }
-}
+   }
 
-  @Override
-  public void handleSendText(Intent intent) {
+  private static void handleSendText(Intent intent) {
     String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
     if (sharedText != null) {
         // Update UI to reflect text being shared
@@ -88,8 +73,7 @@ public class ShareMyApp extends CordovaPlugin {
     }
 }
 
-  @Override
-  public void handleSendImage(Intent intent) {
+  private static void handleSendImage(Intent intent) {
     Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
     if (imageUri != null) {
         // Update UI to reflect image being shared
@@ -97,16 +81,15 @@ public class ShareMyApp extends CordovaPlugin {
     }
 }
 
-  @Override
-  public void handleSendMultipleImages(Intent intent) {
+  private static void handleSendMultipleImages(Intent intent) {
     ArrayList<Uri> imageUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
     if (imageUris != null) {
         // Update UI to reflect multiple images being shared
                 webView.loadUrl("javascript:handleNewIntent('multipleimages', '" + imageUris + "');");
     }
 }
-  @Override
-  public void handleSendVideo(Intent intent) {
+
+  private static void handleSendVideo(Intent intent) {
     Uri videoUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
     if (videoUri != null) {
         // Update UI to reflect video being shared
@@ -114,8 +97,7 @@ public class ShareMyApp extends CordovaPlugin {
     }
 }
 
-  @Override
-  public void handleSendMultipleVideos(Intent intent) {
+  private static void handleSendMultipleVideos(Intent intent) {
     ArrayList<Uri> videoUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
     if (videoUris != null) {
         // Update UI to reflect multiple videos being shared
