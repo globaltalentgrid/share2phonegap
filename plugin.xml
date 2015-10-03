@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="gtg.withme.share2phonegap"
+        version="0.0.1">
+
+  <name>Share 2 Phonegap</name>
+
+  <description>
+Share text, images etc to your phonegap app.
+  </description>
+
+  <author>Amit Gupta</author>
+
+  <license>MIT</license>
+
+  <keywords>Custom Phonegap plugin, Share with My App, Share App</keywords>
+
+  <repo>https://github.com/globaltalentgrid/share2phonegap.git</repo>
+
+  <issue>https://github.com/globaltalentgrid/share2phonegap/issues</issue>
+
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+
+  <!-- android -->
+  <platform name="android">
+    <js-module src="www/android/ShareMyApp.js" name="ShareMyApp">
+      <clobbers target="window.plugins.sharemyapp" />
+    </js-module>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="ShareMyApp">
+        <param name="android-package" value="nl.xservices.plugins.ShareMyApp"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/nl/xservices/plugins/ShareMyApp.java" target-dir="src/nl/xservices/plugins"/>
+
+    <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+        <intent-filter>
+          <action android:name="android.intent.action.SEND" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <data android:mimeType="text/plain" />
+        </intent-filter>
+        <intent-filter>
+          <action android:name="android.intent.action.SEND" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <data android:mimeType="video/*" />
+        </intent-filter>
+        <intent-filter>
+          <action android:name="android.intent.action.SEND" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <data android:mimeType="image/*" />
+        </intent-filter>
+    </config-file>
+  </platform>
+
+
+</plugin>
